@@ -1,47 +1,44 @@
 // Update with your config settings.
 
-/**
- * @type { Object.<string, import("knex").Knex.Config> }
- */
 module.exports = {
 
   development: {
-    client: 'sqlite3',
+    client: "mysql",
     connection: {
-      filename: './dev.sqlite3'
-    }
+      database: "allgiri",
+      user: "root",
+      password: "＃2022GlueckAufSteiger",
+    },
+    pool: {
+      min: 2,
+      max: 10
+    },
   },
 
   staging: {
-    client: 'postgresql',
+    client: "mysql",
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      database: "allgiri",
+      user: "root",
+      password: "[＃2022GlueckAufSteiger]",
     },
     pool: {
       min: 2,
       max: 10
     },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
   },
 
   production: {
-    client: 'postgresql',
+    client: "mysql",
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      database: "allgiri",
+      user: "root",
+      password: "[＃2022GlueckAufSteiger]",
     },
     pool: {
       min: 2,
       max: 10
     },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
   }
 
 };
