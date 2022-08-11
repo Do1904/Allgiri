@@ -11,9 +11,9 @@ module.exports = function (app) {
         done(null, user.id);
     });
 
-    passport.deserializeUser(async function (id, done) {
+    passport.deserializeUser(function (id, done) {
         try {
-            const user = await User.findById(id);
+            const user = User.findById(id);
             done(null, user);
         } catch (error) {
             done(error, null);
@@ -54,7 +54,7 @@ module.exports = function (app) {
             maxAge: 24 * 60 * 60 * 1000, // 24 hours
         })
     );
-    
+
     app.use(passport.initialize());
     app.use(passport.session());
 };
