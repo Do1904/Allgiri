@@ -17,7 +17,7 @@ router.post('/', function (req, res, next) {
   const repassword = req.body.repassword;
 
   knex("users")
-    .where({ name: username })
+    .where({name: username})
     .select("*")
     .then(async function (result) {
       if (result.length !== 0) {
@@ -30,7 +30,7 @@ router.post('/', function (req, res, next) {
         const hashedPassword = await bcrypt.hash(password, 10);
         console.log(hashedPassword);
         knex("users")
-          .insert({ name: username, password: hashedPassword })
+          .insert({name: username, password: hashedPassword})
           .then(function () {
             res.redirect("/");
           })
