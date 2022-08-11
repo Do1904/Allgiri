@@ -1,10 +1,9 @@
 const express = require('express');
-const { default: knex } = require('knex');
 const router = express.Router();
+const knex = require('../db/knex');
 
-/* GET home page. */
 router.get('/gametop', function(req, res, next) {
-  res.render('index', { title: 'Allgiri App' });
+  res.render('gametop', { title: 'Allgiri App' });
 });
 
 
