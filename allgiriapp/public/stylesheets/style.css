@@ -1,8 +1,27 @@
 body {
   padding: 50px;
+  background-color: #013c00;
+  color: rgb(146, 255, 146);
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: rgb(146, 255, 146);
+}
+
+div#search {
+  position: fixed;
+}
+
+.roomCreation {
+  color: rgb(0, 0, 0);
+  background: #c6c6c6bb;
+  /*背景色の指定*/
+  border: #ffffffb0 2px solid;
+  /*境界線の指定 */
+  box-shadow: 0 0 0 2px #e7e7e7a3;
+  /*  境界線の外側の指定 */
+  padding: 35px 75px;
+  margin: 40px auto;
+  width: 37%;
 }

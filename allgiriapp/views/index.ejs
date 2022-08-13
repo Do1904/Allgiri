@@ -10,36 +10,55 @@
 
 <body>
   <%- include('./error_messages'); %>
-  <h1>
-    <%= title %>
-  </h1>
-  <% if(isAuth) { %>
-      <p>Hello!</p>
-      <a href="/signout">Sign out</a>
-    <% } else { %>
-      <p>Welcome to <%= title %>
-      </p>
-      <br>
-      <div class="intro">
-        <h2>後出し大喜利アプリ「Allgiri」へようこそ！</h2>
-        <p>後出し大喜利とは、大喜利のお題の一部をあらかじめ隠した状態で回答を考え、最後にお題と回答を照らし合わせる変わった大喜利です。</p>
-        <p>参加者には役割を自分で決めてもらいます。選べる役割は「お題作成者」と「回答者」の２つです。</p>
-        <table>
-          <tr>
-            <td>お題作成者</td>
-            <td>あらかじめ用意されている大喜利のお題で、隠される部分の入力を担当します。お題のフォーマットの穴埋めをします。</td>
-          </tr>
-          <tr>
-            <td>回答者</td>
-            <td>お題の一部分が隠されたものを元に、回答をしてもらいます。隠されている部分を予測して回答を入力します。</td>
-          </tr>
-        </table>
+    <h1 style="text-align: center;">
+      <%= title %>
+    </h1>
+    <% if(isAuth) { %>
+      <p>ようこそ！<%= username %>さん！</p>
+      <h1>Game Top</h1>
+      <div id="creation">
+        <div class="roomCreation">
+          <h4 style="text-align: center;">ルーム新規作成</h4>
+          <form action="/createRoom" method="post">
+            <label for="your_name">Name：</label>
+            <input id="createRoom" name="createRoom" placeholder="名前を入力" required /><br>
+            Template：<select id="subject">
+              <option value="XXXの意外な使い道を教えてください。" selected>XXXの意外な使い道を教えてください。</option>
+              <option value="XXXの衝撃的な原材料を教えてください。">XXXの衝撃的な原材料を教えてください。</option>
+              <option value="XXXを倒すのに必要不可欠なものを教えてください。">XXXを倒すのに必要不可欠なものを教えてください。</option>
+            </select><br><br>
+            <input type="submit" value="Create Room" />
+          </form>
+        </div>
       </div>
-      <a href="/signup">Sign up now!</a>
-      <a href="/signin">Sign in</a>
-    <% } %>
-  
-  
+      <br>
+      <br>
+      <div id="ohgiriTable"></div>
+      <a href="/signout">Sign out</a>
+      <% } else { %>
+        <p>Welcome to <%= title %>
+        </p>
+        <br>
+        <div class="intro">
+          <h2>後出し大喜利アプリ「Allgiri」へようこそ！</h2>
+          <p>後出し大喜利とは、大喜利のお題の一部をあらかじめ隠した状態で回答を考え、最後にお題と回答を照らし合わせる変わった大喜利です。</p>
+          <p>参加者には役割を自分で決めてもらいます。選べる役割は「お題作成者」と「回答者」の２つです。</p>
+          <table>
+            <tr>
+              <td>お題作成者</td>
+              <td>あらかじめ用意されている大喜利のお題で、隠される部分の入力を担当します。お題のフォーマットの穴埋めをします。</td>
+            </tr>
+            <tr>
+              <td>回答者</td>
+              <td>お題の一部分が隠されたものを元に、回答をしてもらいます。隠されている部分を予測して回答を入力します。</td>
+            </tr>
+          </table>
+        </div>
+        <a href="/signup">Sign up now!</a>
+        <a href="/signin">Sign in</a>
+        <% } %>
+
+
 </body>
 
 </html>
